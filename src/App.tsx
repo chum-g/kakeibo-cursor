@@ -10,7 +10,7 @@ import { SignupPage } from './pages/SignupPage';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/kakeibo-cursor">
       <AuthProvider>
         <Routes>
           <Route path="/login" element={<LoginPage />} />
