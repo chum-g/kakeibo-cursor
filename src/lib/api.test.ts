@@ -1,5 +1,5 @@
-require('dotenv').config();
-import { supabase } from './supabase';
+import 'dotenv/config';
+import { supabase } from './supabase.node';
 import { api } from './api';
 import type { Category, Expense } from '../types';
 
@@ -81,7 +81,7 @@ describe('支出API', () => {
       date: today,
       category_id: createdCategory!.id,
       memo: 'テスト支出',
-    } as any);
+    } as Omit<Expense, 'id' | 'user_id' | 'created_at'>);
     expect(createdExpense).toBeDefined();
     expect(createdExpense.amount).toBe(1234);
     expect(createdExpense.memo).toBe('テスト支出');
